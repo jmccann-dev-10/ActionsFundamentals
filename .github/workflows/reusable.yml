@@ -13,8 +13,10 @@ jobs:
   reusable-job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello ${{ inputs.who-to-greet }}"
+      - name: Greet Submitter
+        run: echo "Hello ${{ inputs.who-to-greet }}"
       - id: time
+        name: Create Output Timestamp
         run: echo "timeStamp=$(date)" >> $GITHUB_OUTPUT
     outputs:
       set-time: ${{ steps.time.outputs.timeStamp }}
